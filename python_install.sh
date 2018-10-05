@@ -7,7 +7,12 @@
 brew install pyenv
 brew install pyenv-virtualenv
 
-cat bash_profile_add >> ~/.bash_profile
+cat << 'EOF' >> ~/.bash_profile
+PYENV_ROOT=~/.pyenv
+export PATH=$PATH:$PYENV_ROOT/bin
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+EOF
 
 source ~/.bash_profile
 
