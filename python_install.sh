@@ -24,7 +24,7 @@ pyenv global 3.6.5
 pip install --upgrade pip
 
 ## pip install
-pip install ccxt==1.12.174
+pip install ccxt
 pip install simplejson
 pip install pybitflyer
 pip install requests
