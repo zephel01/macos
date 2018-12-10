@@ -31,7 +31,7 @@ pip install requests
 pip install datetime
 pip install pandas
 pip install pytz
-pip install websocket-client==0.47
+pip install websocket-client
 pip install matplotlib
 pip install discord
 pip install pillow
@@ -40,3 +40,7 @@ pip install bitmex
 ## ta-lib install
 brew install ta-lib
 pip install ta-lib
+
+## chromedriver
+brew install chromedriver
+pip install selenium
