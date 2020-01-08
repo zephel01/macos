@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# change bash
+chsh -s /bin/bash
+
 ## brew install
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
