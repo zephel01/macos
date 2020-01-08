@@ -7,6 +7,8 @@ chsh -s /bin/bash
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+brew install git
+
 git clone git://github.com/yyuu/pyenv.git ~/.pyenv
 git clone git://github.com/yyuu/pyenv-update.git ~/.pyenv/plugins/pyenv-update
 
