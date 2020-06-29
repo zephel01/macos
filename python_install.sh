@@ -23,9 +23,9 @@ EOF
 
 source ~/.bash_profile
 
-pyenv install 3.6.5
+pyenv install 3.6.10
 pyenv install 2.7.15
-pyenv global 3.6.5
+pyenv global 3.6.10
 
 pyenv rehash
 
