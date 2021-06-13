@@ -1,7 +1,5 @@
 #!/bin/bash
-
-# change bash
-chsh -s /bin/bash
+### Mac Build 
 
 echo "$SHELL"
 
@@ -14,27 +12,42 @@ brew install git
 git clone https://github.com/anyenv/anyenv ~/.anyenv
 
 ## export anyenv
-cat << 'EOF' >> ~/.bash_profile
+at << 'EOF' >> ~/.zshrc
 # export anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init - --no-rehash)"
+if [ -e "$HOME/.anyenv" ]
+then
+    export ANYENV_ROOT="$HOME/.anyenv"
+    export PATH="$ANYENV_ROOT/bin:$PATH"
+    if command -v anyenv 1>/dev/null 2>&1
+    then
+        eval "$(anyenv init - zsh)"
+    fi
+fi
 EOF
 
-~/.anyenv/bin/anyenv init
 exec $SHELL -l
 anyenv install --init
+
+## install anyenv plugins
+mkdir -p $(anyenv root)/plugins
+git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+
+anyenv update
 
 ## install pyenv
 anyenv install pyenv
 
 ## export pyenv
-cat << 'EOF' >> ~/.bash_profile
+cat << 'EOF' >> ~/.zprofile
+# export pyenv
 export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+EOF
+
+cat << 'EOF' >> ~/.zshrc
+# export pyenv
+eval "$(pyenv init -)"
 EOF
 
 exec $SHELL -l
