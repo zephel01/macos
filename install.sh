@@ -7,6 +7,10 @@ echo "$SHELL"
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+cat ~/m1mac/.zshrc >> ~/.zshrc
+
+exec $SHELL -l
+
 brew install git
 
 git clone https://github.com/anyenv/anyenv ~/.anyenv
